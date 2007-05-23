@@ -3,14 +3,15 @@
 %define lib_name        %{lib_name_orig}%{lib_major}
 
 Name:           libnetfilter_queue
-Version:        0.0.12
-Release:        %mkrel 2
+Version:        0.0.13
+Release:        %mkrel 1
 Epoch:          0
 Summary:        Provides an API for packets that have been queued by the kernel packet filter
 Group:          System/Libraries
 License:        GPL
-URL:            http://www.netfilter.org/projects/%{name}/index.html
-Source0:        http://ftp.netfilter.org/pub/%{name}/%{name}-%{version}.tar.bz2
+URL:            http://www.netfilter.org/projects/libnetfilter_queue/index.html
+Source0:        http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2
+Source1:        http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2.sig
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:  chrpath
 BuildRequires:  libnfnetlink-devel
@@ -57,16 +58,16 @@ This package contains the static development files for %{name}.
 %setup -q
 
 %build
-%configure2_5x
-%make
+%{configure2_5x}
+%{make}
 
 %install
 %{__rm} -rf %{buildroot}
-%makeinstall
+%{makeinstall}
 %{_bindir}/chrpath -d %{buildroot}%{_libdir}/libnetfilter_queue_libipq.so.%{lib_major}.*.*
 
 %check
-%make check
+%{make} check
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -77,18 +78,16 @@ This package contains the static development files for %{name}.
 
 %files -n %{lib_name}
 %defattr(-,root,root,-)
-%doc ChangeLog COPYING
+%doc COPYING
 %{_libdir}/*.so.*
 
 %files -n %{lib_name}-devel
 %defattr(-,root,root,-)
-%{_includedir}/%{name}
+%{_includedir}/libnetfilter_queue
 %{_libdir}/*.so
-%{_libdir}/pkgconfig/%{name}.pc
+%{_libdir}/pkgconfig/libnetfilter_queue.pc
 %{_libdir}/*.la
 
 %files -n %{lib_name}-static-devel
 %defattr(-,root,root,-)
 %{_libdir}/*.a
-
-
