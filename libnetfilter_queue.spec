@@ -7,7 +7,7 @@
 
 Name:           libnetfilter_queue
 Version:        0.0.15
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Summary:        Provides an API for packets that have been queued by the kernel packet filter
 Group:          System/Libraries
@@ -15,7 +15,6 @@ License:        GPL
 URL:            http://www.netfilter.org/projects/libnetfilter_queue/index.html
 Source0:        http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2
 Source1:        http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2.sig
-BuildRequires:  chrpath
 BuildRequires:  nfnetlink-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -65,7 +64,6 @@ This package contains the static development files for %{name}.
 %install
 %{__rm} -rf %{buildroot}
 %{makeinstall_std}
-%{_bindir}/chrpath -d %{buildroot}%{_libdir}/libnetfilter_queue_libipq.so.%{major}.*.*
 
 %check
 %{make} check
