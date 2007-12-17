@@ -16,7 +16,6 @@ URL:            http://www.netfilter.org/projects/libnetfilter_queue/index.html
 Source0:        http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2
 Source1:        http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2.sig
 BuildRequires:  nfnetlink-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 libnetfilter_queue is a userspace library providing an API to
