@@ -7,7 +7,7 @@
 
 Name:           libnetfilter_queue
 Version:        0.0.15
-Release:        %mkrel 2
+Release:        %mkrel 4
 Epoch:          0
 Summary:        Provides an API for packets that have been queued by the kernel packet filter
 Group:          System/Libraries
