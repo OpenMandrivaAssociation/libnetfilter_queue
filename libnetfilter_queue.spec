@@ -6,8 +6,8 @@
 %define libnamestaticdevelold %{mklibname netfilter_queue 1}-static-devel
 
 Name:           libnetfilter_queue
-Version:        0.0.15
-Release:        %mkrel 4
+Version:        0.0.16
+Release:        %mkrel 1
 Epoch:          0
 Summary:        Provides an API for packets that have been queued by the kernel packet filter
 Group:          System/Libraries
@@ -15,7 +15,7 @@ License:        GPL
 URL:            http://www.netfilter.org/projects/libnetfilter_queue/index.html
 Source0:        http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2
 Source1:        http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2.sig
-BuildRequires:  nfnetlink-devel
+BuildRequires:  nfnetlink-devel >= 0:0.0.38
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
