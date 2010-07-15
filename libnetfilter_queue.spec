@@ -6,8 +6,8 @@
 %define libnamestaticdevelold %{mklibname netfilter_queue 1}-static-devel
 
 Name:           libnetfilter_queue
-Version:        0.0.17
-Release:        %mkrel 2
+Version:        1.0.0
+Release:        %mkrel 1
 Epoch:          0
 Summary:        Provides an API for packets that have been queued by the kernel packet filter
 Group:          System/Libraries
