@@ -7,7 +7,7 @@
 
 Name:           libnetfilter_queue
 Version:        1.0.0
-Release:        %mkrel 2
+Release:        %mkrel 3
 Epoch:          0
 Summary:        Provides an API for packets that have been queued by the kernel packet filter
 Group:          System/Libraries
@@ -71,12 +71,16 @@ This package contains the static development files for %{name}.
 %clean
 %{__rm} -rf %{buildroot}
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
+%if "%{distribution}" == "Mandriva Linux"
+	%if %mdkversion < 200900
+	%post -n %{libname} -p /sbin/ldconfig
+	%endif
 %endif
 
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
+%if "%{distribution}" == "Mandriva Linux"
+	%if %mdkversion < 200900
+	%postun -n %{libname} -p /sbin/ldconfig
+	%endif
 %endif
 
 %files -n %{libname}
