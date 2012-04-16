@@ -2,18 +2,17 @@
 %define libname               %mklibname netfilter_queue %{major}
 %define libnamedevel          %mklibname netfilter_queue -d
 
+Summary:	Provides an API for packets that have been queued by the kernel packet filter
 Name:		libnetfilter_queue
 Version:	1.0.1
-Release:	%mkrel 1
+Release:	2
 Epoch:		0
-Summary:	Provides an API for packets that have been queued by the kernel packet filter
 Group:		System/Libraries
 License:	GPL
 URL:		http://www.netfilter.org/projects/libnetfilter_queue/index.html
 Source0:	http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2
 Source1:	http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2.sig
 BuildRequires:	nfnetlink-devel >= 0:0.0.38
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 libnetfilter_queue is a userspace library providing an API to
@@ -46,38 +45,22 @@ This package contains the development files for %{name}.
 %setup -q
 
 %build
-%{configure2_5x}
-%{make}
-
-%install
-%{__rm} -rf %{buildroot}
-%{makeinstall_std}
+%configure2_5x
+%make
 
 %check
-%{make} check
+make check
 
-%clean
-%{__rm} -rf %{buildroot}
+%install
+%makeinstall_std
 
-%if "%{distribution}" == "Mandriva Linux"
-	%if %mdkversion < 200900
-	%post -n %{libname} -p /sbin/ldconfig
-	%endif
-%endif
-
-%if "%{distribution}" == "Mandriva Linux"
-	%if %mdkversion < 200900
-	%postun -n %{libname} -p /sbin/ldconfig
-	%endif
-%endif
+rm -f %{buildroot}%{_libdir}/*.la
 
 %files -n %{libname}
-%defattr(-,root,root,-)
 %doc COPYING
 %{_libdir}/*.so.%{major}*
 
 %files -n %{libnamedevel}
-%defattr(-,root,root,-)
 %{_includedir}/libnetfilter_queue
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libnetfilter_queue.pc
