@@ -45,6 +45,7 @@ This package contains the development files for %{name}.
 %setup -q
 
 %build
+autoreconf -fi
 %configure2_5x
 %make
 
