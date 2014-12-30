@@ -46,6 +46,7 @@ This package contains the development files for %{name}.
 %setup -q
 
 %build
+%define _disable_ld_no_undefined 1
 autoreconf -fi
 %configure
 %make
