@@ -46,7 +46,6 @@ This package contains the development files for %{name}.
 %setup -q
 
 %build
-%define _disable_ld_no_undefined 1
 autoreconf -fi
 %configure
 %make
@@ -58,6 +57,7 @@ make check
 %makeinstall_std
 
 rm -f %{buildroot}%{_libdir}/*.la
+rm %{buildroot}/%{_includedir}/internal.h
 
 %files -n %{libname}
 %doc COPYING
