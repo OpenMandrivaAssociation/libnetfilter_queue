@@ -5,7 +5,7 @@
 Summary:	Provides an API for packets that have been queued by the kernel packet filter
 Name:		libnetfilter_queue
 Version:	1.0.2
-Release:	2
+Release:	3
 Epoch:		0
 Group:		System/Libraries
 License:	GPL
