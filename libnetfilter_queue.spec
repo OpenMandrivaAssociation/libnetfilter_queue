@@ -4,9 +4,8 @@
 
 Summary:	Provides an API for packets that have been queued by the kernel packet filter
 Name:		libnetfilter_queue
-Version:	1.0.2
-Release:	5
-Epoch:		0
+Version:	1.0.3
+Release:	1
 Group:		System/Libraries
 License:	GPL
 URL:		http://www.netfilter.org/projects/libnetfilter_queue/index.html
@@ -43,18 +42,18 @@ Requires:	%{libname} = %{epoch}:%{version}-%{release}
 This package contains the development files for %{name}.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 autoreconf -fi
 %configure
-%make
+%make_build
 
 %check
 make check
 
 %install
-%makeinstall_std
+%make_install
 
 rm -f %{buildroot}%{_libdir}/*.la
 rm %{buildroot}/%{_includedir}/internal.h
