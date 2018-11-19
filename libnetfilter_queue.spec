@@ -55,7 +55,6 @@ make check
 %make_install
 
 rm -f %{buildroot}%{_libdir}/*.la
-rm %{buildroot}/%{_includedir}/internal.h
 
 %files -n %{libname}
 %doc COPYING
