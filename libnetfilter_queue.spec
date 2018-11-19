@@ -1,6 +1,6 @@
-%define major                 1
-%define libname               %mklibname netfilter_queue %{major}
-%define libnamedevel          %mklibname netfilter_queue -d
+%define major 1
+%define libname %mklibname netfilter_queue %{major}
+%define libnamedevel %mklibname netfilter_queue -d
 
 Summary:	Provides an API for packets that have been queued by the kernel packet filter
 Name:		libnetfilter_queue
@@ -22,8 +22,8 @@ part of a system that deprecates the old ip_queue/libipq mechanism.
 %package -n %{libname}
 Summary:	Main library for %{name}
 Group:		System/Libraries
-Provides:	%{name} = %{epoch}:%{version}-%{release}
-Provides:	netfilter_queue = %{epoch}:%{version}-%{release}
+Provides:	%{name} = %{EVRD}
+Provides:	netfilter_queue = %{EVRD}
 
 %description -n %{libname}
 libnetfilter_queue is a userspace library providing an API for
@@ -33,10 +33,10 @@ part of a system that deprecates the old ip_queue/libipq mechanism.
 %package -n %{libnamedevel}
 Summary:        Development files for %{name}
 Group:          System/Libraries
-Obsoletes:	%{mklibname netfilter_queue 1}-devel < %{epoch}:%{version}-%{release}
-Obsoletes:	%{mklibname netfilter_queue -d -s} < %{epoch}:%{version}-%{release}
-Provides:	netfilter_queue-devel = %{epoch}:%{version}-%{release}
-Requires:	%{libname} = %{epoch}:%{version}-%{release}
+Obsoletes:	%{mklibname netfilter_queue 1}-devel < %{EVRD}
+Obsoletes:	%{mklibname netfilter_queue -d -s} < %{EVRD}
+Provides:	netfilter_queue-devel = %{EVRD}
+Requires:	%{libname} = %{EVRD}
 
 %description -n %{libnamedevel}
 This package contains the development files for %{name}.
