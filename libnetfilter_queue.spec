@@ -46,7 +46,7 @@ This package contains the development files for %{name}.
 %build
 autoreconf -fi
 %configure
-%make_build LIBS='-lnetfilter_queue'
+%make_build
 
 %install
 %make_install
