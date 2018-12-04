@@ -1,3 +1,10 @@
+%ifarch %{aarch64}
+# Workaround for weird linker bug ("/usr/bin/ld: error: unrecognized emulation aarch64linux")
+# (even though ld does support it)
+# As of binutils 2.31.1-2, clang 7.0.0-3
+%global ldflags %{ldflags} -fuse-ld=bfd
+%endif
+
 %define major 1
 %define libname %mklibname netfilter_queue %{major}
 %define libnamedevel %mklibname netfilter_queue -d
@@ -51,8 +58,6 @@ autoreconf -fi
 
 %install
 %make_install
-
-rm -f %{buildroot}%{_libdir}/*.la
 
 %files -n %{libname}
 %doc COPYING
