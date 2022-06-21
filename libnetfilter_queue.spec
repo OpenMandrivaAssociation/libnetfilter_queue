@@ -17,7 +17,7 @@ Group:		System/Libraries
 License:	GPL
 URL:		http://www.netfilter.org/projects/libnetfilter_queue/index.html
 Source0:	http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-%{version}.tar.bz2
-Patch0:		nfq-symbol-visibility-clang.patch
+#Patch0:		nfq-symbol-visibility-clang.patch
 BuildRequires:	nfnetlink-devel >= 0:0.0.38
 BuildRequires:	pkgconfig(libmnl)
 
